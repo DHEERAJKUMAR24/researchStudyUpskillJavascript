@@ -1,0 +1,15 @@
+{
+  "before": {
+    "memory": 39.1484375,
+    "cpu": 3.2
+  },
+  "during": {
+    "memory": 42.25,
+    "cpu": 0
+  },
+  "after": {
+    "memory": 39.94140625,
+    "cpu": 0
+  },
+  "executionTime": "1.2609"
+}
