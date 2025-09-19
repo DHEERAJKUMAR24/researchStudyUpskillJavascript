@@ -1,3 +1,4 @@
+
 <!-- ------------------------------------------------------------------------- -->
 Prompt1 (SPELL: CodeSmith)
 
@@ -27,7 +28,7 @@ Your job is to generate a complete practice file template following these rules:
 - For practice/interview problems, use the `ProblemSolving/` folder. Each problem should have its own folder named `<ProblemName__tags>`, supporting multiple versions and optional documentation.
 - Example:
 Javascript/
-Concepts/
+concepts/
 array/
 string/
 linkedlist/
@@ -48,10 +49,11 @@ v2_excludeItems__array-filter-excludeArray__C3D4.js
 ReadMe.md (optional, see below)
 ReadMe.md
 
-- Add a `ReadMe.md` in each concept/problem folder if needed.
+- Add a `ReadMe.md` in each concept or problem folder if needed.
 - Use it to describe the problem statement, constraints, and example inputs/outputs.
 - If the documentation is short, it can remain inside the code file header instead.
 - **Deciding basis for ReadMe.md:** Add a ReadMe.md if the problem requires extra explanation, constraints, multiple approaches, or example inputs/outputs. For simple problems, a detailed code header may be sufficient.
+- Each `ReadMe.md` must include the parent concept or problem folder name at the top for clarity. eg- Arrays_Readme.md
 
 - Concept folders (`concepts/array/`, `concepts/string/`, `concepts/linkedlist/`, `concepts/JsScope/`, etc.) are for reusable code, notes, or grouped concept files.
 
@@ -61,6 +63,9 @@ ReadMe.md
   1. Be appended to the filename with a separator (e.g., `__A1B2.js`)
   2. Be included in the file header under `File ID`.
 - This ensures files are always uniquely traceable.
+
+- **Folder Creation Check:**
+- Before creating folders, always check whether the folder already exists to avoid duplication.
 
 ---
 
@@ -122,3 +127,58 @@ const timeResult = measureTimeComplexity(solve, input);
 console.log('--- Memory Complexity ---');
 const memResult = measureMemoryComplexity(solve, input);
 console.log('Result:', timeResult);
+````
+
+---
+
+# Workspace Organization
+
+All JavaScript practice problems, helpers, and documentation are now organized under the top-level `Javascript/` folder.
+
+## Structure Example
+
+```
+Javascript/
+  array/
+    excludeItems/
+      v1_excludeItems__array-filter-excludeArray.js
+  performance_helpers/
+    performance.js
+  string/
+  linkedlist/
+  ReadMe.md
+```
+
+## Performance Monitoring
+
+Use the centralized helper in `Javascript/performance_helpers/performance.js` for all time and memory complexity measurements. Import and use in any practice file as needed.
+
+## Practice Problems
+
+Place all practice problems in their respective category folders under `Javascript/`.
+
+## No Per-Problem Performance Folders
+
+Do not create separate performance folders/files for each problem. Use the shared helper instead.
+
+<!-- ------------------------------------------------------------------------------------------------ -->
+
+---
+
+# Clarifications & Standards
+
+1. **Folder Structure Consistency**
+  - All concept folders must be strictly under `Javascript/concepts/` (lowercase only).
+  - All ProblemSolving or interview related codes folders must be strictly under `Javascript/ProblemSolving/` (Upper Camel Case only).
+
+2. **ReadMe.md Naming**
+  - Rename each `ReadMe.md` to include its parent folder/concept/problem name (e.g., `array_ReadMe.md`, `excludeItems_ReadMe.md`).
+
+3. **File ID Generation**
+  - Use a short (≤6 chars) alphanumeric ID derived from datetime, consistently formatted (e.g., compress `20250919_153045_123` to `A1B2C3`).
+
+4. **Folder Creation Check**
+  - If a folder exists, skip creation and use the existing one—no errors or duplication.
+
+5. **Performance Helpers**
+  - Always use the shared `performance.js` via correct relative paths from any subfolder (e.g., `../../performance_helpers/performance.js`).

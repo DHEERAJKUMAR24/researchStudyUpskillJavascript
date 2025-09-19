@@ -1,107 +1,57 @@
-<!-- ------------------------------------------------------------------------- -->
-Prompt1
 
-### Instruction ###
-You are a code practice organizer.
+# researchStudyUpskillJavascript Workspace
 
-I will provide you with either:
-- A problem statement, OR
-- A starter code snippet.
+## Overview
+This workspace is designed for organized JavaScript practice, problem solving, and concept upskilling. It follows strict standards for folder structure, file naming, documentation, and performance monitoring.
 
-Your job is to generate a complete practice file template following these rules:
+## Folder Structure
 
----
-
-### 🔖 File Naming Rules
-- Start with version: v1, v2, v3, etc.
-- Problem/Concept name: camelCase (e.g., excludeItems, twoSum, linkedListReverse).
-- Separator: double underscore "__".
-- Tags: dash-separated, all lowercase (e.g., array-hashmap, filter-excludeArray).
-- Example: v2_excludeItems__filter-excludeArray.js
-
----
-
-### 📁 Folder Structure Rules
-- Use top-level folders by major tag/category (e.g., `array/`, `string/`, `linkedlist/`).
-- Inside, group by problem name, then store versioned files.
-- Example:
-  array/
-    excludeItems/
-      v1_excludeItems__filter-excludeArray.js
-      v2_excludeItems__filter-excludeArray.js
-
-- Add a `README.md` in each concept/problem folder if needed.
-  - Use it to describe the problem statement, constraints, and example inputs/outputs.
-  - If the documentation is short, it can remain inside the code file header instead.
-
----
-
-### 📄 Inside File Header Template
-/**
-Problem: <title>
-
-Concepts: <main concepts>
-
-Tags: <tags, comma-separated>
-
-Source: <LeetCode | Interview | Custom>
-
-links: <Any related refernce links will come here>
-
-Version: vX
-
-Difficulty: <Easy | Medium | Hard>
-
-Linked Versions:
-v1: <filename>
-v2: <filename>
-...
-
-Improvements from previous version:
-- <bullet points>
-
-Approach:
-Time Complexity: O(?)
-Space Complexity: O(?)
-*/
-
----
-
-
-### 🛠 Code Section
-- Define a function named:
-  solve<ProblemName><Version>(input)
-  Example: solveTwoSumV1(input)
-  (This ensures uniqueness across multiple languages and versions.)
-- Provide at least three test cases:
-  - ✅ Positive case
-  - ❌ Negative case
-  - ⚡ Edge case (like LeetCode style tests: empty arrays, single element, large input)
-- Use console.log() (JavaScript), print() (Python), or equivalent in the chosen language.
-
----
-
-### 🚀 Performance Monitoring (Reusable)
-- For JavaScript, use the reusable helpers in `performance_helpers/performance.js`:
-
-```js
-const { measureTimeComplexity, measureMemoryComplexity } = require('<relative-path-to>/performance_helpers/performance');
-
-// Example usage:
-console.log('--- Time Complexity ---');
-const timeResult = measureTimeComplexity(solve, input);
-console.log('--- Memory Complexity ---');
-const memResult = measureMemoryComplexity(solve, input);
-console.log('Result:', timeResult);
+```
+Javascript/
+	concepts/
+		array/
+		string/
+		linkedlist/
+		JsScope/
+	performance_helpers/
+		performance.js
+	ProblemSolving/
+		<ProblemName__tags>/
+			v1_<problemName>__<tags>__<FileID>.js
+	ReadMe.md
 ```
 
-- These helpers can be imported in any practice or performance file to measure and print execution time and memory usage for any function.
+## Standards & Conventions
+
+- **Concepts:** All concept files are under `Javascript/concepts/` (lowercase).
+- **Problems:** All practice problems are under `Javascript/ProblemSolving/`, each in its own folder named `<ProblemName__tags>`.
+- **File Naming:**
+	- Version prefix (v1, v2, ...)
+	- CamelCase problem/concept name
+	- Double underscore separator
+	- Dash-separated tags
+	- Unique short file ID (≤6 chars, alphanumeric, datetime-based)
+	- Example: `v1_excludeItems__array-filter-excludeArray__A1B2.js`
+- **ReadMe.md:**
+	- Each concept/problem folder may have a ReadMe named with its parent (e.g., `array_ReadMe.md`).
+	- Top-level ReadMe.md describes the whole workspace.
+- **Folder Creation:**
+	- Always check for existing folders before creating new ones; skip if present.
+- **Performance Monitoring:**
+	- Use the shared helper in `Javascript/performance_helpers/performance.js`.
+	- Reference with correct relative paths from any subfolder.
+
+## Practice File Template
+
+Each practice file must include:
+- File header with problem/concept details, tags, source, links, version, difficulty, file ID, linked versions, improvements, approach, and complexity analysis.
+- Main function named `solve<ProblemName><Version>(input)`.
+- At least three test cases: positive, negative, edge.
+- Performance monitoring code (optional, using shared helper).
+
+## Example
+
+See `Prompt.md` for the full template and standards.
 
 ---
-
-### 🔑 Output Format
-1. Suggested **filename**
-2. Suggested **folder structure**
-3. Full **file template with header + starter code**
-4. After confirming with the user generate the folder/files for the user.
-<!-- ------------------------------------------------------------------------------------------ -->
+For questions or contributions, follow the standards in `Prompt.md` and this ReadMe.
