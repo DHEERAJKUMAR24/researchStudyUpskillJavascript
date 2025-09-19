@@ -24,6 +24,12 @@ Time Complexity: O(E * N) where E = excludes.length, N = items.length
 Space Complexity: O(N)
 */
 
+function solve({ items, excludes }) {
+  excludes.forEach(pair => {
+    items = items.filter(item => item[pair.k] !== pair.v)
+  })
+  return items
+}
 
 // Test case
 const items = [
@@ -36,13 +42,6 @@ const excludes = [
   { k: 'color', v: 'silver' },
   { k: 'type', v: 'tv' }
 ]
-
-function solve({ items, excludes }) {
-  excludes.forEach(pair => {
-    items = items.filter(item => item[pair.k] !== pair.v)
-  })
-  return items
-}
 
 console.log(solve({ items, excludes }))
 // Expected output: [ { color: 'blue', type: 'book', age: 17 } ]
